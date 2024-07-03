@@ -21,18 +21,17 @@ The calibration process uses a simple formula to adjust the ADC multiplier based
 2. **Adjust the ADC Multiplier**: The formula adjusts the current ADC multiplier to make sure that the device reads 100% charge when the battery voltage is 4.19V.
 3. **Calculate the new ADC Multiplier**: The new ADC multiplier is calculated by the following formula:
 
-
-**Example Calculation:**
+<details>
+  <summary>Example Calculation</summary>
 
 Let's say your device shows a battery voltage of 3.82V using a current ADC multiplier of 2.
 
 The formula would be:
 
-
-
 Update the Device: You then set the new ADC multiplier (2.194 in this case) in your device's configuration.
 
 This calculation adjusts the multiplier so that the battery charge readings are accurate, mapping 4.19V to 100% battery charge.
+</details>
 
 #### ADC Calculator
 
