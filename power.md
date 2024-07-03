@@ -60,10 +60,10 @@ This calculation adjusts the multiplier so that the battery charge readings are 
           <option value="esp32-s3-pico" data-multiplier="3.1">esp32-s3-pico</option>
           <option value="heltec_v1" data-multiplier="3.2">heltec_v1</option>
           <option value="heltec_v2" data-multiplier="3.2">heltec_v2</option>
-          <option value="heltec_v3" data-multiplier="4.9">heltec_v3</option>
-          <option value="heltec_wsl_v3" data-multiplier="4.9">heltec_wsl_v3</option>
+          <option value="heltec_v3" data-multiplier="5.1205">heltec_v3</option>
+          <option value="heltec_wsl_v3" data-multiplier="5.1205">heltec_wsl_v3</option>
           <option value="heltec_wireless_paper" data-multiplier="2.0">heltec_wireless_paper</option>
-          <option value="heltec_wireless_tracker" data-multiplier="4.9">heltec_wireless_tracker</option>
+          <option value="heltec_wireless_tracker" data-multiplier="5.1205">heltec_wireless_tracker</option>
           <option value="lora_isp4520" data-multiplier="1.436">lora_isp4520</option>
           <option value="m5stack_coreink" data-multiplier="5.0">m5stack_coreink</option>
           <option value="nano-g1-explorer" data-multiplier="2.0">nano-g1-explorer</option>
