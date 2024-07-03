@@ -4,9 +4,6 @@ title: Power Configuration
 sidebar_label: Power
 description: Settings for advanced users who want to adjust the power configuration on their Meshtastic device.
 ---
-
-### ADC Multiplier Override
-
 Ratio of voltage divider for battery pin e.g. 3.20 (R1=100k, R2=220k)
 
 Overrides the ADC_MULTIPLIER defined in the firmware device variant file for battery voltage calculation.
