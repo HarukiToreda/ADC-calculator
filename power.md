@@ -1,4 +1,3 @@
-
 Update the Device: You then set the new ADC multiplier (2.2 in this case) in your device's configuration.
 
 This calculation adjusts the multiplier so that the battery charge readings are accurate, mapping 4.2V to 100% battery charge.
