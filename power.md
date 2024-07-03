@@ -33,6 +33,7 @@ Update the Device: You then set the new ADC multiplier (2.194 in this case) in y
 This calculation adjusts the multiplier so that the battery charge readings are accurate, mapping 4.19V to 100% battery charge.
 </details>
 
+
 #### ADC Calculator
 
 <div>
