@@ -78,7 +78,7 @@ This calculation adjusts the multiplier so that the battery charge readings are 
     </tr>
     <tr>
       <td>Current Adc Multiplier:</td>
-      <td><input type="text" id="operativeAdcMultiplier" value="Choose Device" /></td>
+      <td><input type="text" id="operativeAdcMultiplier" value="" /></td>
     </tr>
     <tr>
       <td>Calculated New Operative Adc Multiplier:</td>
