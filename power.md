@@ -4,15 +4,6 @@ title: Power Configuration
 sidebar_label: Power
 description: Settings for advanced users who want to adjust the power configuration on their Meshtastic device.
 ---
-
-import Admonition from "@theme/Admonition";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
-:::info Use Device Config first
-Power settings are advanced configuration, most users should choose a role under [Device Config](/docs/configuration/radio/device) to manage power for their device and shouldn't ever need to adjust these settings.
-:::
-
 ## Power Config Values
 
 ### ADC Multiplier Override
