@@ -1,5 +1,5 @@
 ---
-id: power
+layout: default
 title: Power Configuration
 sidebar_label: Power
 description: Settings for advanced users who want to adjust the power configuration on their Meshtastic device.
@@ -57,87 +57,82 @@ Should be set to a floating point value between 2 and 6
       </Admonition>
       <table>
         <tr>
-          <td> Battery Voltage (V): </td>
+          <td>Device:</td>
           <td>
-            <input type="text" id="batteryVoltage" value="3.82" />
+            <select id="deviceSelect" onchange="updateAdcMultiplier()">
+              <option value="chatter2" data-multiplier="5.0">chatter2</option>
+              <option value="diy" data-multiplier="1.85">diy</option>
+              <option value="esp32-s3-pico" data-multiplier="3.1">esp32-s3-pico</option>
+              <option value="heltec_v1" data-multiplier="3.2">heltec_v1</option>
+              <option value="heltec_v2" data-multiplier="3.2">heltec_v2</option>
+              <option value="heltec_v3" data-multiplier="4.9">heltec_v3</option>
+              <option value="heltec_wsl_v3" data-multiplier="4.9">heltec_wsl_v3</option>
+              <option value="heltec_wireless_paper" data-multiplier="2.0">heltec_wireless_paper</option>
+              <option value="heltec_wireless_tracker" data-multiplier="4.9">heltec_wireless_tracker</option>
+              <option value="lora_isp4520" data-multiplier="1.436">lora_isp4520</option>
+              <option value="m5stack_coreink" data-multiplier="5.0">m5stack_coreink</option>
+              <option value="nano-g1-explorer" data-multiplier="2.0">nano-g1-explorer</option>
+              <option value="nano-g2-ultra" data-multiplier="2.0">nano-g2-ultra</option>
+              <option value="picomputer-s3" data-multiplier="3.1">picomputer-s3</option>
+              <option value="rak4631" data-multiplier="1.73">rak4631</option>
+              <option value="rpipico" data-multiplier="3.1">rpipico</option>
+              <option value="rpipicow" data-multiplier="3.1">rpipicow</option>
+              <option value="station-g1" data-multiplier="6.45">station-g1</option>
+              <option value="station-g2" data-multiplier="4.0">station-g2</option>
+              <option value="tlora_v2_1_16" data-multiplier="2.0">tlora_v2_1_16</option>
+              <option value="tlora_v2_1_18" data-multiplier="2.11">tlora_v2_1_18</option>
+              <option value="tlora_t3s3_v1" data-multiplier="2.11">tlora_t3s3_v1</option>
+              <option value="t-deck" data-multiplier="2.11">t-deck</option>
+              <option value="t-echo" data-multiplier="2.0">t-echo</option>
+            </select>
           </td>
         </tr>
         <tr>
-          <td> Battery Charge Percent: </td>
-          <td>
-            <input type="text" id="batteryChargePercent" value="65" />
-          </td>
+          <td>Battery Voltage (V):</td>
+          <td><input type="text" id="batteryVoltage" value="3.82" /></td>
         </tr>
         <tr>
-          <td>Current Adc Multiplier: </td>
-          <td>
-            <input type="text" id="operativeAdcMultiplier" value="2" />
-          </td>
+          <td>Battery Charge Percent:</td>
+          <td><input type="text" id="batteryChargePercent" value="65" /></td>
         </tr>
         <tr>
-          <td>Calculated New Operative Adc Multiplier: </td>
-          <td>
-            <input
-              type="text"
-              id="newOperativeAdcMultiplier"
-              value="2"
-              disabled="disabled"
-            />
-          </td>
+          <td>Current Adc Multiplier:</td>
+          <td><input type="text" id="operativeAdcMultiplier" value="5.0" /></td>
+        </tr>
+        <tr>
+          <td>Calculated New Operative Adc Multiplier:</td>
+          <td><input type="text" id="newOperativeAdcMultiplier" value="5.0" disabled="disabled" /></td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button
-              className="button button--outline button--lg cta--button"
-              onClick={() => {
-                const batteryVoltage = parseFloat(document.getElementById('batteryVoltage').value);
-                const batteryChargePercent = parseFloat(document.getElementById('batteryChargePercent').value);
-                const currentAdcMultiplier = parseFloat(document.getElementById('operativeAdcMultiplier').value);
-
-                if (isNaN(batteryVoltage) || batteryVoltage <= 0 || isNaN(batteryChargePercent) || batteryChargePercent < 0 || batteryChargePercent > 100 || isNaN(currentAdcMultiplier) || currentAdcMultiplier < 2 || currentAdcMultiplier > 6) {
-                  alert("Please enter valid numbers within the specified ranges.");
-                  return;
-                }
-
-                const targetVoltage = 4.19;
-                const newAdcMultiplier = currentAdcMultiplier * (targetVoltage / batteryVoltage);
-
-                document.getElementById('newOperativeAdcMultiplier').value = newAdcMultiplier.toFixed(3);
-              }}
-            >
-              Calculate
-            </button>
+            <button class="button button--outline button--lg cta--button" onclick="calculateNewMultiplier()">Calculate</button>
           </td>
         </tr>
       </table>
-      Default values for ADC Multipliers are:
+      <script>
+        function updateAdcMultiplier() {
+          var select = document.getElementById('deviceSelect');
+          var multiplier = select.options[select.selectedIndex].getAttribute('data-multiplier');
+          document.getElementById('operativeAdcMultiplier').value = multiplier;
+        }
 
-      |  Device   | Default ADC Multiplier |
-      | :-------: | :--------------------: |
-      | chatter2 | 5.0 |
-      | diy | 1.85 |
-      | esp32-s3-pico | 3.1 |
-      | heltec_v1 & heltec_v2 | 3.2 |
-      | heltec_v3 & heltec_wsl_v3 | 4.9 |
-      | heltec_wireless_paper | 2 |
-      | heltec_wireless_tracker 1.0/1.1 | 4.9 |
-      | lora_isp4520 | 1.436 |
-      | m5stack_coreink | 5 |
-      | nano-g1-explorer | 2 |
-      | nano-g2-ultra | 2 |
-      | picomputer-s3 | 3.1 |
-      | rak4631 | 1.73 |
-      | rpipico | 3.1 |
-      | rpipicow | 3.1 |
-      | station-g1 | 6.45 |
-      | station-g2 | 4 |
-      | tlora_v2_1_16 | 2 |
-      | tlora_v2_1_18 | 2.11 |
-      | tlora_t3s3_v1 | 2.11 |
-      | t-deck | 2.11 |
-      | t-echo | 2 |
+        function calculateNewMultiplier() {
+          var batteryVoltage = parseFloat(document.getElementById('batteryVoltage').value);
+          var batteryChargePercent = parseFloat(document.getElementById('batteryChargePercent').value);
+          var currentAdcMultiplier = parseFloat(document.getElementById('operativeAdcMultiplier').value);
 
+          if (isNaN(batteryVoltage) || batteryVoltage <= 0 || isNaN(batteryChargePercent) || batteryChargePercent < 0 || batteryChargePercent > 100 || isNaN(currentAdcMultiplier) || currentAdcMultiplier < 2 || currentAdcMultiplier > 6) {
+            alert("Please enter valid numbers within the specified ranges.");
+            return;
+          }
+
+          var targetVoltage = 4.19;
+          var newAdcMultiplier = currentAdcMultiplier * (targetVoltage / batteryVoltage);
+
+          document.getElementById('newOperativeAdcMultiplier').value = newAdcMultiplier.toFixed(3);
+        }
+      </script>
     </div>
   </details>
 </div>
@@ -203,7 +198,7 @@ Power Config options are available for Android.
 
 :::info
 
-Select Power config options are available on iOS, iPadOS and macOS at Settings > Deivce Configuration > Power.
+Select Power config options are available on iOS, iPadOS and macOS at Settings > Device Configuration > Power.
 
 :::
 
