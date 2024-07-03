@@ -1,6 +1,6 @@
 title: ADC Calculator
 description: >- # this means to ignore newlines until "baseurl:"
-  This is a simple ADC calculator hosted on GitHub Pages.
+  This is a simple ADC calculator.
 baseurl: "/ADC-calculator" # the subpath of your site, e.g. /blog
 url: "https://HarukiToreda.github.io" # the base hostname & protocol for your site
 theme: jekyll-theme-slate
