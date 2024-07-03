@@ -49,10 +49,6 @@ This calculation adjusts the multiplier so that the battery charge readings are 
           <td><input type="text" id="batteryVoltage" value="3.82" /></td>
         </tr>
         <tr>
-          <td>Battery Charge Percent:</td>
-          <td><input type="text" id="batteryChargePercent" value="65" /></td>
-        </tr>
-        <tr>
           <td>Current Adc Multiplier:</td>
           <td><input type="text" id="operativeAdcMultiplier" value="5.0" /></td>
         </tr>
@@ -76,10 +72,9 @@ This calculation adjusts the multiplier so that the battery charge readings are 
 
         function calculateNewMultiplier() {
           var batteryVoltage = parseFloat(document.getElementById('batteryVoltage').value);
-          var batteryChargePercent = parseFloat(document.getElementById('batteryChargePercent').value);
           var currentAdcMultiplier = parseFloat(document.getElementById('operativeAdcMultiplier').value);
 
-          if (isNaN(batteryVoltage) || batteryVoltage <= 0 || isNaN(batteryChargePercent) || batteryChargePercent < 0 || batteryChargePercent > 100 || isNaN(currentAdcMultiplier) || currentAdcMultiplier < 2 || currentAdcMultiplier > 6) {
+          if (isNaN(batteryVoltage) || batteryVoltage <= 0 || isNaN(currentAdcMultiplier) || currentAdcMultiplier < 2 || currentAdcMultiplier > 6) {
             alert("Please enter valid numbers within the specified ranges.");
             return;
           }
