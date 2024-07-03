@@ -1,13 +1,54 @@
+---
+layout: default
+title: Power Configuration
+sidebar_label: Power
+description: Settings for advanced users who want to adjust the power configuration on their Meshtastic device.
+---
 
-Update the Device: You then set the new ADC multiplier (2.2 in this case) in your device's configuration.
+import Admonition from "@theme/Admonition";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-This calculation adjusts the multiplier so that the battery charge readings are accurate, mapping 4.2V to 100% battery charge.
+:::info Use Device Config first
+Power settings are advanced configuration, most users should choose a role under [Device Config](/docs/configuration/radio/device) to manage power for their device and shouldn't ever need to adjust these settings.
+:::
+
+## Power Config Values
+
+### ADC Multiplier Override
+
+Ratio of voltage divider for battery pin e.g. 3.20 (R1=100k, R2=220k)
+
+Overrides the ADC_MULTIPLIER defined in the firmware device variant file for battery voltage calculation.
+
+Should be set to a floating point value between 2 and 6
+
+#### Calibration Process
+
+The calibration process uses a simple formula to adjust the ADC multiplier based on the battery voltage. Here’s a detailed breakdown of how the calculation is done:
+
+1. **Determine the target ADC value**: The target ADC value for a full battery (100% charge) is known, which is 4.19V.
+2. **Adjust the ADC Multiplier**: The formula adjusts the current ADC multiplier to make sure that the device reads 100% charge when the battery voltage is 4.19V.
+3. **Calculate the new ADC Multiplier**: The new ADC multiplier is calculated by the following formula:
+
+
+**Example Calculation:**
+
+Let's say your device shows a battery voltage of 3.82V using a current ADC multiplier of 2.
+
+The formula would be:
+
+
+
+Update the Device: You then set the new ADC multiplier (2.194 in this case) in your device's configuration.
+
+This calculation adjusts the multiplier so that the battery charge readings are accurate, mapping 4.19V to 100% battery charge.
 
 #### ADC Calculator
 
 <div>
   <Admonition type="info">
-    <p>This calibration method only maps 4.2V to Battery Charge Percent 100%, and does not address the potential non-linearities of the ADC.</p>
+    <p>This calibration method only maps 4.19V to Battery Charge Percent 100%, and does not address the potential non-linearities of the ADC.</p>
   </Admonition>
   <table>
     <tr>
