@@ -21,8 +21,8 @@ The calibration process uses a simple formula to adjust the ADC multiplier based
 New ADC Multiplier = Current ADC Multiplier × (4.19V / Battery Voltage at Current Multiplier)
 
 <details>
-  <summary>Example Calculation</summary>
-
+  <summary><strong>Example Calculation:</strong></summary>
+  
 Let's say your device shows a battery voltage of 3.82V using a current ADC multiplier of 2.
 
 The formula would be:
