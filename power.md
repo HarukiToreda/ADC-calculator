@@ -26,6 +26,13 @@ New ADC Multiplier = Current ADC Multiplier × (4.19V / Battery Voltage at Curre
 Let's say your device shows a battery voltage of 3.82V using a current ADC multiplier of 2.
 
 The formula would be:
+New ADC Multiplier = 2 × (4.19 / 3.82)
+
+Calculate the ratio:
+4.19 / 3.82 ≈ 1.097
+
+Multiply the current ADC multiplier by this ratio:
+New ADC Multiplier = 2 × 1.097 = 2.194
 
 Update the Device: You then set the new ADC multiplier (2.194 in this case) in your device's configuration.
 
