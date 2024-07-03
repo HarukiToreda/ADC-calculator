@@ -44,6 +44,7 @@ This calculation adjusts the multiplier so that the battery charge readings are 
       <td>Device:</td>
       <td>
         <select id="deviceSelect" onchange="updateAdcMultiplier()">
+          <option value="" data-multiplier="Choose"></option>          
           <option value="chatter2" data-multiplier="5.0">chatter2</option>
           <option value="diy" data-multiplier="1.85">diy</option>
           <option value="esp32-s3-pico" data-multiplier="3.1">esp32-s3-pico</option>
